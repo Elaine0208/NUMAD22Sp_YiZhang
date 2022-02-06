@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'My Key'
+            keyPassword '910208'
+            storeFile file('C:\\NEU\\5520\\YZKeystore\\YZKey.jks')
+            storePassword '910208'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -19,6 +27,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
