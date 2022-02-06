@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">NUMAD22Sp_YiZhang</string>
     <string name="about_me_string">About Me</string>
+    <string name="clicky_clicky_string">Clicky Clicky</string>
+    <string name="a_string">A</string>
+    <string name="b_string">B</string>
+    <string name="c_string">C</string>
+    <string name="d_string">D</string>
+    <string name="e_string">E</string>
+    <string name="f_string">F</string>
+    <string name="press_string">Press:</string>
+    <string name="pressed_string">Pressed: -</string>
 </resources>
