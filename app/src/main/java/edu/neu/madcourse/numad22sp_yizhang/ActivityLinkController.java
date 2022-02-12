@@ -19,7 +19,7 @@ import java.util.Random;
 
 import android.os.Bundle;
 
-public class ActivityLinkController extends AppCompatActivity {//Creating the essential parts needed for a Recycler view to work: RecyclerView, Adapter, LayoutManager
+public class ActivityLinkController extends AppCompatActivity implements EnterUrlPopup.EnterUrlListener {//Creating the essential parts needed for a Recycler view to work: RecyclerView, Adapter, LayoutManager
     private ArrayList<ItemCard> itemList = new ArrayList<>();
 
     private RecyclerView recyclerView;
@@ -32,6 +32,26 @@ public class ActivityLinkController extends AppCompatActivity {//Creating the es
 
 
     @Override
+    public void applyTexts(String name, String url) {
+        if (isValidUrl(url)) {
+            addItem(0, name, url);
+        } else {
+            Snackbar.make(recyclerView, "Invalid Url: " + url,
+                    Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+    }
+
+    private boolean isValidUrl(String url) {
+        if (!url.startsWith("www.")) {
+            return false;
+        } else if (!url.endsWith(".com")) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_controller);
@@ -42,8 +62,7 @@ public class ActivityLinkController extends AppCompatActivity {//Creating the es
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int pos = 0;
-                addItem(pos);
+                openEnterUrl();
             }
         });
 
@@ -56,15 +75,21 @@ public class ActivityLinkController extends AppCompatActivity {//Creating the es
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                Toast.makeText(ActivityLinkController.this, "Delete an item", Toast.LENGTH_SHORT).show();
+                Snackbar.make(recyclerView, "Removed a link",
+                        Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
                 int position = viewHolder.getLayoutPosition();
                 itemList.remove(position);
 
                 rviewAdapter.notifyItemRemoved(position);
-
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    public void openEnterUrl() {
+        EnterUrlPopup enterUrlPopup = new EnterUrlPopup();
+        enterUrlPopup.show(getSupportFragmentManager(), "enter url");
     }
 
 
@@ -134,10 +159,10 @@ public class ActivityLinkController extends AppCompatActivity {//Creating the es
 
     }
 
-    private void addItem(int position) {
-        itemList.add(position, new ItemCard("Name", "Url: " + Math.abs(new Random().nextInt(100000))));
-        Snackbar.make(recyclerView, "Link Registered",
-                Snackbar.LENGTH_SHORT)
+    private void addItem(int position, String name, String url) {
+        itemList.add(position, new ItemCard(name, url));
+        Snackbar.make(recyclerView, "Url: " + url + " registered",
+                Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
         rviewAdapter.notifyItemInserted(position);
     }
