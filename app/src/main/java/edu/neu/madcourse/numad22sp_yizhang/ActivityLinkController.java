@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -112,17 +113,9 @@ public class ActivityLinkController extends AppCompatActivity {//Creating the es
                     itemList.add(itemCard);
                 }
             }
+        } else {
+            // Displays empty list the first time to open this Activity
         }
-        // The first time to opne this Activity
-        else {
-            ItemCard item1 = new ItemCard("Gmail", "Example description");
-            ItemCard item2 = new ItemCard("Google", "Example description");
-            ItemCard item3 = new ItemCard("Youtube", "Example description");
-            itemList.add(item1);
-            itemList.add(item2);
-            itemList.add(item3);
-        }
-
     }
 
     private void createRecyclerView() {
@@ -142,9 +135,10 @@ public class ActivityLinkController extends AppCompatActivity {//Creating the es
     }
 
     private void addItem(int position) {
-        itemList.add(position, new ItemCard("No Logo item", "Item id: " + Math.abs(new Random().nextInt(100000))));
-        Toast.makeText(this, "Add an item", Toast.LENGTH_SHORT).show();
-
+        itemList.add(position, new ItemCard("Name", "Url: " + Math.abs(new Random().nextInt(100000))));
+        Snackbar.make(recyclerView, "Link Registered",
+                Snackbar.LENGTH_SHORT)
+                .setAction("Action", null).show();
         rviewAdapter.notifyItemInserted(position);
     }
 }
