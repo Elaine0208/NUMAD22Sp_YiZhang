@@ -10,4 +10,5 @@
     <string name="f_string">F</string>
     <string name="press_string">Press:</string>
     <string name="pressed_string">Pressed: -</string>
+    <string name="me_string">Me</string>
 </resources>

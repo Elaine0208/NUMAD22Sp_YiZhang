@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD22Sp_YiZhang">
         <activity
+            android:name=".ActivityAboutMe"
+            android:exported="false" />
+        <activity
             android:name=".ActivityClicky"
             android:exported="false" />
         <activity

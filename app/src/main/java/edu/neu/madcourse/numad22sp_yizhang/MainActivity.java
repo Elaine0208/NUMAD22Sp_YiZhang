@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonClicky;
+    private Button buttonAboutMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 openClickyClicky();
-
             }
         });
 
+        buttonAboutMe = (Button) findViewById(R.id.button);
+        buttonAboutMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAboutMe();
+            }
+        });
 
     }
 
@@ -34,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void ShowMsg(View view){
-        Toast.makeText(getApplicationContext(), "Yi Zhang: zhang.yi15@northeastern.edu", Toast.LENGTH_LONG).show();
+    public void openAboutMe() {
+        Intent intent = new Intent(this, ActivityAboutMe.class);
+        startActivity(intent);
     }
 }
