@@ -11,4 +11,5 @@
     <string name="press_string">Press:</string>
     <string name="pressed_string">Pressed: -</string>
     <string name="me_string">Me</string>
+    <string name="link_controller_string">Link Controller</string>
 </resources>

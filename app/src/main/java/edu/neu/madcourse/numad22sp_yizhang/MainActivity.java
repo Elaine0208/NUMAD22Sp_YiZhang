@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private Button buttonClicky;
     private Button buttonAboutMe;
+    private Button buttonLinkController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonLinkController = (Button) findViewById(R.id.buttonLinkController);
+        buttonLinkController.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLinkController();
+            }
+        });
     }
 
     public void openClickyClicky() {
@@ -42,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAboutMe() {
         Intent intent = new Intent(this, ActivityAboutMe.class);
+        startActivity(intent);
+    }
+
+    public void openLinkController() {
+        Intent intent = new Intent(this, ActivityLinkController.class);
         startActivity(intent);
     }
 }
