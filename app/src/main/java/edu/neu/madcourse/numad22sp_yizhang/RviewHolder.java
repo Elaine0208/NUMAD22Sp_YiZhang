@@ -1,5 +1,7 @@
 package edu.neu.madcourse.numad22sp_yizhang;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -16,5 +18,15 @@ public class RviewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         itemName = itemView.findViewById(R.id.item_name);
         itemDesc = itemView.findViewById(R.id.item_desc);
+
+        itemDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "http://" + itemDesc.toString();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 }

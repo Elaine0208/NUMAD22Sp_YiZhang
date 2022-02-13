@@ -27,7 +27,7 @@ public class EnterUrlPopup extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.enter_url, null);
 
         builder.setView(view)
-                .setTitle("Enter Url")
+                .setTitle("Enter Name and Url")
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

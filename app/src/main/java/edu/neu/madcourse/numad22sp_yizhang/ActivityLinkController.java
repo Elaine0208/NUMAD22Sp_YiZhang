@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import java.util.Random;
 
 import android.os.Bundle;
 
-public class ActivityLinkController extends AppCompatActivity implements EnterUrlPopup.EnterUrlListener {//Creating the essential parts needed for a Recycler view to work: RecyclerView, Adapter, LayoutManager
+public class ActivityLinkController extends AppCompatActivity implements EnterUrlPopup.EnterUrlListener {
     private ArrayList<ItemCard> itemList = new ArrayList<>();
 
     private RecyclerView recyclerView;
@@ -36,19 +37,14 @@ public class ActivityLinkController extends AppCompatActivity implements EnterUr
         if (isValidUrl(url)) {
             addItem(0, name, url);
         } else {
-            Snackbar.make(recyclerView, "Invalid Url: " + url,
+            Snackbar.make(recyclerView, "Invalid Url. Please re-enter.",
                     Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
     }
 
     private boolean isValidUrl(String url) {
-        if (!url.startsWith("www.")) {
-            return false;
-        } else if (!url.endsWith(".com")) {
-            return false;
-        }
-        return true;
+        return Patterns.WEB_URL.matcher(url).matches();
     }
 
     @Override
