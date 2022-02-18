@@ -41,10 +41,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/link_controller_string"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/buttonLocator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button2" />
+
+    <Button
+        android:id="@+id/buttonLocator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locator_string"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonLinkController" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

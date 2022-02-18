@@ -1,8 +1,12 @@
 package edu.neu.madcourse.numad22sp_yizhang;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonClicky;
     private Button buttonAboutMe;
     private Button buttonLinkController;
+    private Button buttonLocator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
                 openLinkController();
             }
         });
+
+        buttonLocator = (Button) findViewById(R.id.buttonLocator);
+        buttonLocator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLocator();
+            }
+        });
+
+    }
+
+
+
+    private void openLocator() {
+        Intent intent = new Intent(this, LocatorActivity.class);
+        startActivity(intent);
     }
 
     public void openClickyClicky() {
@@ -58,3 +79,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+

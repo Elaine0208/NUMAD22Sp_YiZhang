@@ -13,4 +13,9 @@
     <string name="me_string">Me</string>
     <string name="link_controller_string">Link Controller</string>
     <string name="add_string">add</string>
+    <string name="locator_string">Locator</string>
+    <string name="latitude_string">Latitude:</string>
+    <string name="longitude_string">Longitude:</string>
+    <string name="coordinates_string">Coordinates:</string>
+    <string name="get_location_string">Get Location</string>
 </resources>
