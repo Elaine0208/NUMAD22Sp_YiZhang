@@ -9,16 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
-import java.util.Random;
 
-
-import android.os.Bundle;
 
 public class ActivityLinkController extends AppCompatActivity implements EnterUrlPopup.EnterUrlListener {
     private ArrayList<ItemCard> itemList = new ArrayList<>();

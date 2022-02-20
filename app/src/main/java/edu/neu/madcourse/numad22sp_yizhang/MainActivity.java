@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
     private Button buttonClicky;
     private Button buttonAboutMe;
@@ -57,11 +59,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     private void openLocator() {
-        Intent intent = new Intent(this, LocatorActivity.class);
-        startActivity(intent);
+        if (ActivityCompat.checkSelfPermission(MainActivity.this
+                , Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(MainActivity.this
+                , Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(MainActivity.this
+                , Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(this, LocatorActivity.class);
+            startActivity(intent);
+        } else {
+            ActivityCompat.requestPermissions(MainActivity.this
+                    , new String[]{Manifest.permission.ACCESS_FINE_LOCATION
+                            , Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100 && grantResults.length > 0 && (grantResults[0] + grantResults[1]
+                == PackageManager.PERMISSION_GRANTED)){
+            Intent intent = new Intent(this, LocatorActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "Permission denied", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void openClickyClicky() {
