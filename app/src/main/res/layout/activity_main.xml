@@ -50,12 +50,23 @@
         android:id="@+id/buttonLocator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/locator_string"
         android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/locator_string"
+        app:layout_constraintBottom_toBottomOf="@id/buttonWebService"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonLinkController" />
+
+    <Button
+        android:id="@+id/buttonWebService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="@string/web_service_string"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonLocator" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

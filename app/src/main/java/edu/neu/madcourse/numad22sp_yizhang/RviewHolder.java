@@ -3,8 +3,6 @@ package edu.neu.madcourse.numad22sp_yizhang;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;

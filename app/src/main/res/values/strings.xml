@@ -18,4 +18,7 @@
     <string name="longitude_string">Longitude:</string>
     <string name="coordinates_string">Coordinates:</string>
     <string name="get_location_string">Get Location</string>
+    <string name="web_service_string">Web Service</string>
+    <string name="https_jsonplaceholder_typicode_com_posts_1_string">https://jsonplaceholder.typicode.com/posts/1</string>
+    <string name="ping_web_service_string">Ping Web Service</string>
 </resources>

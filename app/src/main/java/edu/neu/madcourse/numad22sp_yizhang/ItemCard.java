@@ -9,7 +9,6 @@ public class ItemCard {
     public ItemCard(String itemName, String itemDesc) {
         this.itemName = itemName;
         this.itemDesc = itemDesc;
-
     }
 
     //Getters for the imageSource, itemName and itemDesc
