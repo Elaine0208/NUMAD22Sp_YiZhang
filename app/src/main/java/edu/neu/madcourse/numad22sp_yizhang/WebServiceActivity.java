@@ -55,7 +55,7 @@ public class WebServiceActivity extends AppCompatActivity {
 
         createRecyclerView();
 
-        mURLEditText = (EditText)findViewById(R.id.URL_editText);
+        mURLEditText = (EditText)findViewById(R.id.editText);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
     }

@@ -6,39 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ActivityAboutMe">
 
-    <EditText
+    <TextView
+        android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/URL_editText"
-        android:text="Yi"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#FFEB3B"
+        android:text="Enter a first name: "
+        app:layout_constraintBottom_toTopOf="@id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Yi"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ping Web Service"
+        android:layout_marginTop="100dp"
         android:onClick="callWebserviceButtonHandler"
-        app:layout_constraintTop_toTopOf="@id/URL_editText"
+        android:text="Predict the nationality of the name"
+        app:layout_constraintBottom_toTopOf="@id/country_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/result_textview"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="OnClick" />
 
-    <TextView
-        android:id="@+id/result_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:text=""
-        app:layout_constraintTop_toTopOf="@id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -51,14 +53,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/country_view"
-        android:layout_width="335dp"
-        android:layout_height="542dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147"
+        app:layout_constraintVertical_bias="0.0"
         tools:listItem="@layout/card_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
