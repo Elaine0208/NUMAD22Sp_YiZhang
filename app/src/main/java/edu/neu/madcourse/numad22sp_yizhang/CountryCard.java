@@ -12,7 +12,6 @@ public class CountryCard {
         this.prob = prob;
     }
 
-    //Getters for the imageSource, itemName and itemDesc
     public String getName() {
         return name;
     }

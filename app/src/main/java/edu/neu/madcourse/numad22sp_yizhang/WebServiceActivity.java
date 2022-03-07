@@ -1,6 +1,5 @@
 package edu.neu.madcourse.numad22sp_yizhang;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -65,7 +64,7 @@ public class WebServiceActivity extends AppCompatActivity {
         try {
             name = mURLEditText.getText().toString();
             String url = convertToUrl("https://api.nationalize.io/?name=" + name);
-            task.executeAsync(url); // This is a security risk.  Don't let your user enter the URL in a real app.
+            task.executeAsync(url);
         } catch (InvalidParameterException e) {
             Toast.makeText(getApplication(),e.toString(),Toast.LENGTH_SHORT).show();
         }
@@ -110,12 +109,7 @@ public class WebServiceActivity extends AppCompatActivity {
                 public void run() {
                     try {
                         URL url = new URL(address);
-                        // Get String response from the url address
                         String resp = getHttpResponse(url);
-                        //Log.i("resp",resp);
-
-                        // JSONArray jArray = new JSONArray(resp);    // Use this if your web service returns an array of objects.  Arrays are in [ ] brackets.
-                        // Transform String into JSONObject
                         jObject = new JSONObject(resp);
                         progressBar.setVisibility(View.INVISIBLE);
 
